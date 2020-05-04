@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--<script type="text/javascript" src="afficher_cacher.js"></script>-->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Qui est-ce?</title>
+  </head>
+
+  <body>
+<!-- MODAL TUTORIEL-->
+<div id="tutoriel" class="modal">
+  <div class="modal-content" id="tutorielContent">
+    <span class="close" onclick="cacherModal()">&times;</span>
+        <video autoplay muted loop id="video_tutoriel">
+            <source src="introduction.mp4" type="video/mp4">
+        </video>
+            <div class="tutorielContentText">
+                <p>Parmi ces 15 pirates, UN SEUL pourra accéder au trône et obtenir le titre de « Seigneur des Pirates ».
+                <br>A vous de trouver celui ou celle qui le deviendra !<br>Bonne chance moussaillon.</p>
+                <p>Les règles du jeu sont très simples. L'ordinateur choisi aléatoirement le personnage gagnant.
+                <br>En cliquant sur l'onglet "Questions" vous devrez choisir parmi les caractéristiques proposées celles qui selon vous appartiennent au personnage.
+                Si votre réponse est juste, les personnages ayant cette caractéristique resteront affichés tandis que les autres seront supprimés.
+                <br>En revanche, si votre réponse est fausse, ne vous inquiétez pas, vous ajouterez simplement un point au « Nombre d’essai » ;
+                le but étant bien évidemment de finir la partie en moins de coups possibles !
+                <br>Une fois que vous aurez éliminé certains des personnages et que vous serez sûrs de votre choix, vous pourrez cliquer sur celui ou celle
+                qui selon vous est le SEIGNEUR DES PIRATES.</p>
+                <p> Alors à vos chaloupes et que la partie commence !</p>
+            </div>
+        </div>
+</div>
+<!-- MODAL QUESTIONS-->
+<div id="questions" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cacherModal()">&times;</span>
+            <h2>Questions</h2>
+            <div class="widget" id="rappel">
+            <p><strong>Rappel:</strong> Une réponse juste n'ajoute pas de point tandis qu'une mauvaise réponse ajoute un malus. Donc si vous cliquez sur une mauvaise réponse, vous devrez rectifier votre choix en cliquant sur la bonne réponse pour visualiser les cartes.</p>
+            </div>
+        <div class="containerBoxQuestions">
+            <div class="boxQuestion" id="formCheveux">
+                <form id="couleurCheveux">
+                    <label for="cheveux">De quelle couleur sont les cheveux du personnage:</label><br>
+                        <input type="button" value="blond" class="btnColor" id="btnColorBlond"></input>
+                        <input type="button" value="roux" class="btnColor" id="btnColorRed"></input>
+                        <input type="button" value="rose" class="btnColor" id="btnColorPink"></input>
+                        <input type="button" value="vert" class="btnColor" id="btnColorGreen"></input>
+                        <input type="button" value="bleu" class="btnColor" id="btnColorBlue"></input>
+                        <input type="button" value="noir" class="btnColor" id="btnColorBlack"></inpuut>
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioCicatrice">
+                <label for="cicatrice">Le personnage a t-il une cicatrice:</label>
+                <form>
+                    <input type="radio" name="cicatrice" onclick="scar();">oui
+                    <input type="radio" name="cicatrice" onclick="scar();">non
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioPoil">
+                <label for="poil">Le personnage a t-il une barbe ou une moustache:</label>
+                <form>
+                    <input type="radio" name="poil" onclick="hairbreadth();">oui
+                    <input type="radio" name="poil" onclick="hairbreadth();">non
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioChapeau">
+                <label for="chapeau">Le personnage a t-il un chapeau:</label>
+                <form>
+                    <input type="radio" name="chapeau" onclick="hat();">oui
+                    <input type="radio" name="chapeau" onclick="hat();">non
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioTatouagesMaquillages">
+                <label for="tatouagesMaquillage">Le personnage a t-il des tatouages ou du maquillage:</label>
+                <form>
+                    <input type="radio" name="tatouagesMaquillage" onclick="tatouagesMaquillages();">oui
+                    <input type="radio" name="tatouagesMaquillage" onclick="tatouagesMaquillages();">non
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioSexe">
+                <label for="sexe">Quel est le sexe du personnage:</label>
+                <form>
+                    <input type="radio" name="sexe" onclick="gender();">Masculin
+                    <input type="radio" name="sexe" onclick="gender();">Féminin
+                </form>
+            </div>
+            <div class="boxQuestion" id="radioEarringPiercing">
+                <label for="earringPiercing">Le personnage a t-il des boucles d'oreille ou des piercings:</label>
+                <form>
+                    <input type="radio" name="earringPiercing" onclick="earringPiercings();">oui
+                    <input type="radio" name="earringPiercing" onclick="earringPiercings();">non
+                </form>
+            </div>
+        </div>
+  </div>
+</div>
+<!-- MODAL AFFICHANT LA REPONSE-->
+<div id="reponse" class="modal">
+  <div class="modal-content" id="reponseContent">
+        <h3>C'est gagné!</h3>
+        <button class="btn" id="compteurReponse">Nombre d'erreurs (0)</button>
+        <div class="widget" id="imgReponse">
+            <span id="messageReponse"></span>
+            </div>
+            <button type="button" class="btn" id="try_again" onclick="reload()">Recommencer</button>
+    </div>
+</div>
+<!-- CARTES -->
+<div class="container">
+  <div class="card_container">
+    <div class="card" id='shanks' onclick="testerCarte(this.id);">
+          <h2>shanks</h2>
+    </div>
+    <div class="card" id="franky" onclick="testerCarte(this.id);">
+        <h2>franky</h2>
+    </div>
+    <div class="card" id="zoro" onclick="testerCarte(this.id);">
+        <h2>zoro</h2>
+    </div>
+    <div class="card" id="hancock" onclick="testerCarte(this.id);">
+        <h2>hancock</h2>
+    </div>
+    <div class="card" id="bigMom" onclick="testerCarte(this.id);">
+        <h2>big mom</h2>
+    </div>
+    <div class="card" id="ace" onclick="testerCarte(this.id);">
+        <h2>ace</h2>
+    </div>
+    <div class="card" id="usopp" onclick="testerCarte(this.id);">
+        <h2>usopp</h2>
+    </div>
+    <div class="card" id="reiju" onclick="testerCarte(this.id);">
+        <h2>reiju</h2>
+    </div>
+    <div class="card" id="sanji" onclick="testerCarte(this.id);">
+        <h2>sanji</h2>
+    </div>
+    <div class="card" id="barto" onclick="testerCarte(this.id);">
+        <h2>barto</h2>
+    </div>
+    <div class="card" id="bonney" onclick="testerCarte(this.id);">
+        <h2>bonney</h2>
+    </div>
+    <div class="card" id="sabo" onclick="testerCarte(this.id);">
+        <h2>sabo</h2>
+    </div>
+    <div class="card" id="luffy" onclick="testerCarte(this.id);">
+        <h2>luffy</h2>
+    </div>
+    <div class="card" id="nami" onclick="testerCarte(this.id);">
+        <h2>nami</h2>
+    </div>
+    <div class="card" id="baggy" onclick="testerCarte(this.id);">
+        <h2>baggy</h2>
+    </div>
+    </div>
+    <menu>
+        <div class="title">
+        <img src="css/img/onePieceLogo.png" alt="Logo One piece Qui est-ce?" >
+        </div>
+        <div class="menuBoutons">
+            <button class="btn" id="btnTutoriel" onclick="afficherModalTutoriel()">Tutoriel</button>
+            <button class="btn" id="btnQuestions" onclick="afficherModalQuestions()">Questions</button>
+            <button class="btn" id="compteur">Nombre d'erreurs (0)</button>
+        </div>
+            <h2>Indices</h2>
+            <h3>Les caractéristiques</h3>
+            <div class="widget">
+            <span class="indice" id="indiceCheveux"></span>
+                <!-- Indices sur la couleur des cheveux -->
+            <span class="indice echec" id="indiceCheveux_blond">Le personnage n'a pas les cheveux blonds</span>
+            <span class="indice echec" id="indiceCheveux_roux">Le personnage n'a pas les cheveux roux</span>
+            <span class="indice echec" id="indiceCheveux_rose">Le personnage n'a pas les cheveux roses</span>
+            <span class="indice echec" id="indiceCheveux_vert">Le personnage n'a pas les cheveux verts</span>
+            <span class="indice echec" id="indiceCheveux_bleu">Le personnage n'a pas les cheveux bleus</span>
+            <span class="indice echec" id="indiceCheveux_noir">Le personnage n'a pas les cheveux noirs</span>
+
+            <span class="indice" id="indiceCicatrice">Le personnage a une cicatrice</span>
+            <span class="indice" id="indicePoil">Le personnage a une barbe ou une moustache</span>
+            <span class="indice" id="indiceChapeau">Le personnage porte un chapeau</span>
+            <span class="indice" id="indiceTatouagesMaquillage">Le personnage a des tatouages ou du maquillage</span>
+            <span class="indice" id="indiceSexe">Le personnage est un homme</span>
+            <span class="indice" id="indiceEarringPiercing">Le personnage a des boucles d'oreille ou des piercings</span>
+            </div>
+            <h3>Les personnages</h3>
+            <div class="widget">
+                <!-- Indices sur qui n'est pas le personnage. Il y a 14 essais car sur les 15 personnages, 1 seule est gagnant -->
+            <span class="indice echec" id="echec_0"></span>
+            <span class="indice echec" id="echec_1"></span>
+            <span class="indice echec" id="echec_2"></span>
+            <span class="indice echec" id="echec_3"></span>
+            <span class="indice echec" id="echec_4"></span>
+            <span class="indice echec" id="echec_5"></span>
+            <span class="indice echec" id="echec_6"></span>
+            <span class="indice echec" id="echec_7"></span>
+            <span class="indice echec" id="echec_8"></span>
+            <span class="indice echec" id="echec_9"></span>
+            <span class="indice echec" id="echec_10"></span>
+            <span class="indice echec" id="echec_11"></span>
+            <span class="indice echec" id="echec_12"></span>
+            <span class="indice echec" id="echec_13"></span>
+            </div>
+    </menu>
+</div>
+<script type="text/javascript" src="js/cartes.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+  </body>
+</html>

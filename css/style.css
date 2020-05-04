@@ -1,0 +1,350 @@
+@font-face {
+  font-family: "roboto";
+  src: url('roboto/roboto-Black.ttf');
+}
+
+body {
+  font-family: "roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E3D1B9;
+  background-image: url("img/background.png");
+}
+
+h1{
+  margin: 5px 0px 0px 0px;
+}
+
+h2{
+  text-transform: uppercase;
+}
+
+.title img{
+  margin-left: 45px;
+  margin-top: 10px;
+  height: 100px;
+}
+
+.title h2{
+ margin-bottom: 0;
+}
+
+p{
+  text-align: justify;
+  margin-right: 10px;
+  margin-left: 10px
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card_container{
+  width: 73%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+width: 180px;
+height: 272px;
+margin: 10px;
+border: 2px #423731 solid;
+background-color: #000;
+background-size: contain, 115px 115px;
+background-position: center, 33px 60px;
+background-repeat: no-repeat;
+transition: opacity 0.5s;
+}
+
+#shanks{
+  background-image: url("img/wanted.png"), url("img/perso/shanks.png");
+}
+#franky{
+  background-image: url("img/wanted.png"), url("img/perso/franky.png");
+}
+#zoro{
+  background-image: url("img/wanted.png"), url("img/perso/zoro.png");
+}
+#hancock{
+  background-image: url("img/wanted.png"), url("img/perso/hancock.png");
+}
+#bigMom{
+  background-image: url("img/wanted.png"), url("img/perso/big-mom.png");
+}
+#ace{
+  background-image: url("img/wanted.png"), url("img/perso/ace.jpeg");
+}
+#usopp{
+  background-image: url("img/wanted.png"), url("img/perso/usopp.png");
+}
+#reiju{
+  background-image: url("img/wanted.png"), url("img/perso/reiju.png");
+}
+#sanji{
+  background-image: url("img/wantedAlive.png"), url("img/perso/sanji.png");
+}
+#barto{
+  background-image: url("img/wanted.png"), url("img/perso/barto.png");
+}
+#bonney{
+  background-image: url("img/wanted.png"), url("img/perso/bonney.jpeg");
+}
+#sabo{
+  background-image: url("img/wanted.png"), url("img/perso/sabo.png");
+}
+#luffy{
+  background-image: url("img/wanted.png"), url("img/perso/luffy.png");
+}
+#nami{
+  background-image: url("img/wanted.png"), url("img/perso/nami.png");
+}
+#baggy{
+  background-image: url("img/wanted.png"), url("img/perso/baggy.png");
+}
+
+/* nom du personnage */
+div.card h2{
+  text-align: center;
+  font-size: 26px;
+  margin-top: 193px;
+  text-transform: uppercase;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  width: 85%;
+  margin: auto;
+  padding: 20px;
+  padding: 5px 15px 5px 5px;
+  background-image: url("img/backgroundWhite.png");
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+
+div.modal-content h2{
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.close {
+  position: fixed;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Tutoriel*/
+#tutorielContent{
+  display: flex;
+}
+
+.tutorielContentText{
+  background-size: cover;
+  color: black;
+  padding: 20px;
+}
+
+/*Questions*/
+.modal-content h2{
+  text-align: center;
+}
+
+.containerBoxQuestions{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.boxQuestion{
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#rappel{
+  background-color: #ffdddd;
+  border: 1.5px solid #f44336;
+  justify-content: center;
+  margin: 20px 25px 10px 30px;
+}
+
+/*Réponse*/
+#reponse h3{
+  text-transform: uppercase;
+}
+
+#reponseContent{
+  text-align: center;
+}
+
+#imgReponse{
+  margin: auto;
+  height: 500px;
+  width: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#reponseContent span{
+  margin: 7px;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: 1px;
+  color: white;
+  background-color: #000;
+}
+
+/*Couleur des cheveux --> choix*/
+.btnColor{
+  height: 30px;
+  width: 30px;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+#btnColorBlond{
+  color: yellow;
+  background-color: yellow;
+}
+
+#btnColorRed{
+  color: red;
+  background-color: red;
+}
+
+#btnColorPink{
+  color: pink;
+  background-color: pink;
+}
+
+#btnColorGreen{
+  color: green;
+  background-color: green;
+}
+
+#btnColorBlue{
+  color: blue;
+  background-color: blue;
+}
+
+#btnColorBlack{
+  color: black;
+  background-color: black;
+}
+
+
+menu{
+  margin: 10px 0px 10px 0px;
+  padding: 15px;
+  width: 24%;
+  text-align: center;
+  background-image: url("img/backgroundWhite.png");
+  border: 2px #423731 solid;
+}
+
+.widget{
+  padding: 5px 15px 5px 5px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+label{
+  text-align: justify;
+}
+
+.menuBoutons{
+  margin: 30px -15px 30px -15px;
+}
+
+.btn{
+  margin: 3px;
+  padding: 14px 28px;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#compteur{
+  color: dodgerblue;
+  border-color: #2196F3;
+}
+
+#compteurReponse{
+  color: dodgerblue;
+  border-color: #2196F3;
+}
+
+#btnTutoriel{
+  cursor: pointer;
+}
+
+#btnQuestions{
+  cursor: pointer;
+}
+
+#try_again{
+  width: 100%;
+  color: white;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  cursor: pointer;
+}
+
+.indice{
+  display: none;
+  width: 100%;
+}
+
+.echec{
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  text-decoration: line-through;
+}
+
+video{
+  max-width: 100%;
+}
+
+
+@media screen and (max-width: 1135px){
+  menu{
+  width: 100%;
+  margin: 0;
+  border-width: 2px 0px 0px 0px;
+  }
+
+  .card_container{
+  width: 100%;
+  }
+}
